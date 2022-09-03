@@ -27,5 +27,5 @@ the same as the one you provided during setup
 
 ## Running Bootloader
 
-There is a handy script called `./run.sh` you can use to build and run the UEFI Bootloader inside of QEMU, assuming
+There is a handy script called `./run.sh <mount path>` you can use to build and run the UEFI Bootloader inside of QEMU, assuming
 you have done all the previous setup and configuration steps
