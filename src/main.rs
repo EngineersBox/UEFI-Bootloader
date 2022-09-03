@@ -13,7 +13,7 @@ fn panic(_info: &PanicInfo) -> ! {
 
 #[no_mangle]
 pub extern "efiapi" fn efi_main(handle: ImageHandle, system_table: *const SystemTable) {
-    let string: &str = "hello\n\r";
+    let string: &str = "Test String\n\r";
     for c in string.chars() {
         let mut buffer: [u16; 1] = [0];
         let utf16: &mut [u16] = c.encode_utf16(&mut buffer);
@@ -25,7 +25,26 @@ pub extern "efiapi" fn efi_main(handle: ImageHandle, system_table: *const System
         }
     }
 
-    let string_arr = ['h' as u16, 'i' as u16, '!' as u16, '\n' as u16, '\0' as u16];
+    let string_arr = [
+        'M' as u16,
+        'o' as u16,
+        'r' as u16,
+        'e' as u16,
+        ' ' as u16,
+        't' as u16,
+        'e' as u16,
+        's' as u16,
+        't' as u16,
+        ' ' as u16,
+        's' as u16,
+        't' as u16,
+        'r' as u16,
+        'i' as u16,
+        'n' as u16,
+        'g' as u16,
+        '\n' as u16,
+        '\0' as u16,
+    ];
     unsafe {
         let status = ((*(*system_table).output).output_string)(
             (*system_table).output,
